@@ -24,4 +24,54 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "tabel_id", nullable = false)
     private Tabel tabel;
+
+    public Booking(String date, int totalGuests, Customer customer, Tabel tabel) {
+        this.date = date;
+        this.totalGuests = totalGuests;
+        this.customer = customer;
+        this.tabel = tabel;
+    }
+
+    public Booking() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public int getTotalGuests() {
+        return totalGuests;
+    }
+
+    public void setTotalGuests(int totalGuests) {
+        this.totalGuests = totalGuests;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Tabel getTabel() {
+        return tabel;
+    }
+
+    public void setTabel(Tabel tabel) {
+        this.tabel = tabel;
+    }
 }
