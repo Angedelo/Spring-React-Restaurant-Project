@@ -21,7 +21,6 @@ public class Customer {
     @Column(name = "visits")
     public int visits;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
@@ -29,7 +28,7 @@ public class Customer {
         this.id = id;
         this.name = name;
         this.visits = visits;
-        this.bookings = new ArrayList<Booking>();
+        this.bookings = new ArrayList<>();
     }
 
     public Customer() {
@@ -67,7 +66,7 @@ public class Customer {
         this.bookings = bookings;
     }
 
-    public  void addBooking(Booking booking){
+    public void addBooking(Booking booking){
         this.bookings.add(booking);
     }
 }

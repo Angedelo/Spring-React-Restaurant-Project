@@ -3,6 +3,7 @@ package com.example.codeclan.restaurant.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,6 @@ public class Tabel {
     @Column(name = "capacity")
     private int capacity;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "tabel", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
@@ -26,6 +26,7 @@ public class Tabel {
         this.id = id;
         this.number = number;
         this.capacity = capacity;
+        this.bookings = new ArrayList<>();
     }
 
     public Tabel() {
