@@ -4,6 +4,7 @@ package com.example.codeclan.restaurant.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
 @Entity
@@ -23,7 +24,7 @@ public class Customer {
     @OneToMany(mappedBy = customer, fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Customer(Long id, String name, int visits) {
+    public Customer(String name) {
         this.id = id;
         this.name = name;
         this.visits = visits;
