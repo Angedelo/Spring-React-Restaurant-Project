@@ -3,10 +3,11 @@ package com.example.codeclan.restaurant.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@javax.persistence.Table(name = "tables")
-public class Table {
+@javax.persistence.Table(name = "tabels")
+public class Tabel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,16 +19,16 @@ public class Table {
     private int capacity;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "table", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tabel", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Table(int number, int capacity) {
+    public Tabel(int number, int capacity) {
         this.id = id;
         this.number = number;
         this.capacity = capacity;
     }
 
-    public Table() {
+    public Tabel() {
     }
 
     public Long getId() {
