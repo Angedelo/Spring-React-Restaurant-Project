@@ -18,6 +18,7 @@ class Customers extends React.Component {
 
   render(){
     return(
+
       <h4>Welcome to the Customers page</h4>
     )
   }
