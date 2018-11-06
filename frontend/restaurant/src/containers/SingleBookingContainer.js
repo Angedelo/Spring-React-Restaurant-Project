@@ -29,9 +29,11 @@ class SingleBookingContainer extends React.Component{
   }
 
   render(){
-    if(!this.state.pirate){
+    if(!this.state.booking){
       return null;
     }
+
+    // without this if app breaks, but i cant get the below to render
 
     return(
       <div>
