@@ -10,7 +10,7 @@ const BookingForm = (props) => {
         "customer": event.target.customer.value,
         "tabel": event.target.table.value
       }
-      console.log(booking);
+      
     props.handleBookingPost(booking)
   }
 
