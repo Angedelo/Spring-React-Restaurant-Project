@@ -7,6 +7,7 @@ import Home from './components/Home.js'
 import './App.css';
 import BookingFormContainer from './containers/BookingFormContainer';
 import SingleBookingContainer from './containers/SingleBookingContainer';
+import BookingEditFormContainer from './containers/BookingEditFormContainer';
 
 class App extends Component {
   render() {
@@ -21,6 +22,11 @@ class App extends Component {
           <Route exact path="/bookings/:id" render = {(props) =>{
             const id = props.match.params.id;
             return <SingleBookingContainer id = {id} />
+            }}
+          />
+          <Route exact path="/bookings/edit/:id" render = {(props) =>{
+            const id = props.match.params.id;
+            return <BookingEditFormContainer id = {id} />
             }}
           />
           <NavBar/>

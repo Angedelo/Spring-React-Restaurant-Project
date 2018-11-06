@@ -20,20 +20,22 @@ class SingleBookingContainer extends React.Component{
     })
   }
 
-  handleDelete(){
-    return null
+  handleDelete(id){
+    const request = new Request();
+    const url = '/bookings/' + id;
+    request.delete(url).then(() => {
+      window.location = '/bookings'
+    })
   }
 
-  handleEdit(){
-    return null
+  handleEdit(id){
+    window.location = '/bookings/edit/' + id
   }
 
   render(){
     if(!this.state.booking){
       return null;
     }
-
-    // without this if app breaks, but i cant get the below to render
 
     return(
       <div>
