@@ -30,6 +30,7 @@ public class Booking {
         this.totalGuests = totalGuests;
         this.customer = customer;
         this.tabel = tabel;
+        this.id = id;
     }
 
     public Booking() {

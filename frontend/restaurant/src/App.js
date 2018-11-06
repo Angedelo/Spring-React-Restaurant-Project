@@ -6,6 +6,7 @@ import Bookings from './containers/Bookings.js'
 import Home from './components/Home.js'
 import './App.css';
 import BookingFormContainer from './containers/BookingFormContainer';
+import SingleBookingContainer from './containers/SingleBookingContainer';
 
 class App extends Component {
   render() {
@@ -17,6 +18,11 @@ class App extends Component {
           <Route exact path="/customers" component={Customers} />
           <Route exact path="/bookings" component={Bookings} />
           <Route exact path="/bookings/new" component={BookingFormContainer} />
+          <Route exact path="/bookings/:id" render = {(props) =>{
+            const id = props.match.params.id;
+            return <SingleBookingContainer id = {id} />
+            }}
+          />
           <NavBar/>
         </React.Fragment>
       </Router>

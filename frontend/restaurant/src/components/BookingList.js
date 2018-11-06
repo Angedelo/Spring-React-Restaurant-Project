@@ -1,14 +1,14 @@
 import React from 'react'
+import Booking from './Booking'
 
 const BookingList = (props) => {
 
-
-
-
-
+const bookings = props.bookings.map((booking) => {
+  return <li key={booking.id}><Booking booking={booking}/></li>
+})
 
   return(
-    <h4>list of bookings here</h4>
+    <ul>{bookings}</ul>
   )
 }
 
