@@ -5,7 +5,7 @@ import Request from '../helpers/request'
 class BookingEditFormContainer extends React.Component {
   constructor(props){
     super(props);
-    this.state = {customers: null, tabels: null, bookings: null};
+    this.state = {customers: null, tables: null, bookings: null};
     this.handleBookingEdit = this.handleBookingEdit.bind(this);
   }
 
@@ -16,6 +16,9 @@ class BookingEditFormContainer extends React.Component {
     });
     request.get("/bookings").then((bookings) => {
       this.setState({bookings: bookings._embedded.bookings})
+    });
+    request.get("/tabels").then((tables) => {
+      this.setState({tables: tables._embedded.tabels})
     });
   }
 
