@@ -5,6 +5,7 @@ class BookingEditForm extends React.Component {
     super(props);
     this.state = {
       date: props.booking.date,
+      time: props.booking.time,
       totalGuests: props.booking.totalGuests,
       customer: props.booking.customer,
       table: props.booking.table
@@ -17,6 +18,7 @@ class BookingEditForm extends React.Component {
     event.preventDefault();
     const booking = {
         "date": this.state.date,
+        "time": this.state.time,
         "totalGuests": this.state.totalGuests,
         "customer": this.state.customer,
         "tabel": this.state.table
@@ -41,6 +43,7 @@ render(){
       <h3>Edit details</h3>
       <form onSubmit={this.handleSubmit}>
         <input type="text" value = {this.state.date} name="date" onChange={event => this.setState({ date: event.target.value })}/>
+        <input type="number" value = {this.state.time} name="time" step="0.01" onChange={event => this.setState({ time: event.target.value })}/>
         <input type="number" value = {this.state.totalGuests} name="totalGuests" onChange={event => this.setState({ totalGuests: event.target.value })}/>
         <select name="table" onChange={event => this.setState({ table: event.target.value })}>
           {tableOptions}

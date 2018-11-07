@@ -14,6 +14,9 @@ public class Booking {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "time")
+    private double time;
+
     @Column(name = "totalGuests")
     private int totalGuests;
 
@@ -25,12 +28,13 @@ public class Booking {
     @JoinColumn(name = "tabel_id", nullable = false)
     private Tabel tabel;
 
-    public Booking(String date, int totalGuests, Customer customer, Tabel tabel) {
+    public Booking(String date, int totalGuests, double time, Customer customer, Tabel tabel) {
         this.date = date;
         this.totalGuests = totalGuests;
         this.customer = customer;
         this.tabel = tabel;
         this.id = id;
+        this.time = time;
     }
 
     public Booking() {
@@ -74,5 +78,13 @@ public class Booking {
 
     public void setTabel(Tabel tabel) {
         this.tabel = tabel;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
     }
 }

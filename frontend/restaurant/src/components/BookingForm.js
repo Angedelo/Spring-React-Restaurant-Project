@@ -6,11 +6,12 @@ const BookingForm = (props) => {
     event.preventDefault();
     const booking = {
         "date": event.target.date.value,
+        "time": event.target.time.value,
         "totalGuests": event.target.totalGuests.value,
         "customer": event.target.customer.value,
         "tabel": event.target.table.value
       }
-      
+
     props.handleBookingPost(booking)
   }
 
@@ -27,6 +28,7 @@ const BookingForm = (props) => {
           <h3>Enter details</h3>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Date" name="date"/>
+            <input type="number" step="0.01" placeholder="Time" name="time"/>
             <input type="number" placeholder="TotalGuests" name="totalGuests"/>
             <select name="customer">
               {customerOptions}

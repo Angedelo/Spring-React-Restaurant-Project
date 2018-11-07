@@ -8,9 +8,7 @@ const Booking = (props) => {
     <React.Fragment>
       <Link to={"/bookings/"+props.booking.id}>Booking:{props.booking.id}</Link>
       <p>Date: {props.booking.date}</p>
-      <p>Time: time to be added</p>
-      <p>Name: get customer name</p>
-      <p>Table: get table number</p>
+      <p>Time: {props.booking.time}pm</p>
     </React.Fragment>
   )
 }
