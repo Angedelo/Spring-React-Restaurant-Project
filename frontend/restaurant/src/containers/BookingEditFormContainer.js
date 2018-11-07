@@ -5,7 +5,7 @@ import Request from '../helpers/request'
 class BookingEditFormContainer extends React.Component {
   constructor(props){
     super(props);
-    this.state = {customers: null, tables: null, bookings: null};
+    this.state = {customers: null, tables: null, booking: null};
     this.handleBookingEdit = this.handleBookingEdit.bind(this);
   }
 
@@ -14,8 +14,8 @@ class BookingEditFormContainer extends React.Component {
     request.get("/customers").then((customers) => {
       this.setState({customers: customers._embedded.customers})
     });
-    request.get("/bookings").then((bookings) => {
-      this.setState({bookings: bookings._embedded.bookings})
+    request.get("/bookings/" + this.props.id).then((booking) => {
+      this.setState({booking: booking})
     });
     request.get("/tabels").then((tables) => {
       this.setState({tables: tables._embedded.tabels})
@@ -30,10 +30,10 @@ class BookingEditFormContainer extends React.Component {
   }
 
   render(){
-    if(!this.state.customers || !this.state.tables || !this.state.bookings){
+    if(!this.state.customers || !this.state.tables || !this.state.booking){
       return null;
     }
-    return <BookingEditForm customers = {this.state.customers} tables={this.state.tables} bookings={this.state.bookings} handleBookingEdit= {this.handleBookingEdit} />
+    return <BookingEditForm customers = {this.state.customers} tables={this.state.tables} booking={this.state.booking} handleBookingEdit= {this.handleBookingEdit} />
 
   }
 }
